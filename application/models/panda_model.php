@@ -7,11 +7,11 @@ class Panda_model extends CI_Model {
   var $beverage;
   var $class;
   var $level;
-  var $likes;
 
   public function __construct() {
     date_default_timezone_set('America/New_York');
     // Call the Model constructor
+    $this->load->database();
     parent::__construct();
   }
 
@@ -30,7 +30,6 @@ class Panda_model extends CI_Model {
     $this->beverage = $_POST['beverage'];
     $this->class    = $_POST['class'];
     $this->level    = $_POST['level'];
-    $this->likes    = $_POST['likes'];
     $this->created  = date("Y-m-d H:i:s");
 
     $this->db->insert('pandas', $this);
@@ -42,7 +41,6 @@ class Panda_model extends CI_Model {
     $this->beverage = $_POST['beverage'];
     $this->class    = $_POST['class'];
     $this->level    = $_POST['level'];
-    $this->likes    = $_POST['likes'];
     $this->updated  = date("Y-m-d H:i:s");
 
     $this->db->update('pandas', $this, array('id' => $_POST['id']));

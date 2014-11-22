@@ -75,7 +75,6 @@
       Beverage: <input type="text" name="beverage"><br>
       Class: <input type="text" name="class"><br>
       Level: <input type="text" name="level"><br>
-      Likes: <input type="text" name="likes"><br>
       <button type="submit">Create</button>
     </form>
 

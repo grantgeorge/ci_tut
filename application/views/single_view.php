@@ -71,7 +71,7 @@
   <h1>Single Panda</h1>
 
     <?php
-      echo $panda->name . ' | ' . $panda->class . ' | ' . $panda->level . ' | ' . $panda->beverage . ' | ' . $panda->likes;
+      echo $panda->name . ' | ' . $panda->class . ' | ' . $panda->level . ' | ' . $panda->beverage;
     ?>
 
     <form action="http://local.tut.com/index.php/pandas/update_entry" method="POST">
@@ -80,7 +80,6 @@
       Beverage: <input type="text" name="beverage" placeholder="<?php echo $panda->beverage ?>"><br>
       Class: <input type="text" name="class" placeholder="<?php echo $panda->class ?>"><br>
       Level: <input type="text" name="level" placeholder="<?php echo $panda->level ?>"><br>
-      Likes: <input type="text" name="likes" placeholder="<?php echo $panda->likes ?>"><br>
       <button type="submit">Update</button>
     </form>
 

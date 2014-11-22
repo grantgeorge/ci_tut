@@ -70,7 +70,7 @@
 
     <?php
       foreach ($query as $panda) {
-        echo $panda->name . ' | ' . $panda->class . ' | ' . $panda->level . ' | ' . $panda->beverage . ' | ' . $panda->likes;
+        echo $panda->name . ' | ' . $panda->class . ' | ' . $panda->level . ' | ' . $panda->beverage;
         echo '<br/>';
       }
     ?>

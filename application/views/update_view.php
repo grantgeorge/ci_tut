@@ -70,7 +70,7 @@
 
     <h1>New Panda!</h1>
 
-    <form action="http://local.tut.com/index.php/pandas/insert_entry" method="POST">
+    <form action="http://local.tut.com/index.php/pandas/update_entry" method="POST">
       Name: <input type="text" name="name"><br>
       Beverage: <input type="text" name="beverage"><br>
       Class: <input type="text" name="class"><br>
