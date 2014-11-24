@@ -18,7 +18,29 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+
+switch (gethostbyaddr("127.0.0.1"))
+{
+	case 'localhost':
+		define('ENVIRONMENT', 'production');
+	break;
+
+	case 'testing.attend.com':
+		define('ENVIRONMENT', 'testing');
+	break;
+
+	case 'staging.attend.com':
+		define('ENVIRONMENT', 'testing');
+	break;
+
+	case 'localhost':
+		define('ENVIRONMENT', 'production');
+	break;
+
+	default:
+		exit('The application environment is not set correctly.');
+}
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -35,7 +57,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -123,6 +145,7 @@ if (defined('ENVIRONMENT'))
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
+date_default_timezone_set('UTC');
 
 // --------------------------------------------------------------------
 // END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE

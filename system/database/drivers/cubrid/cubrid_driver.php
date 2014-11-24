@@ -233,7 +233,7 @@ class CI_DB_cubrid_driver extends CI_DB {
 		// Reset the transaction failure flag.
 		// If the $test_mode flag is set to TRUE transactions will be rolled back
 		// even if the queries produce a successful result.
-		$this->_trans_failure = ($test_mode === TRUE) ? TRUE : FALSE;
+		$this->_trans_status = ($test_mode === TRUE) ? FALSE : $this->_trans_status;
 
 		if (cubrid_get_autocommit($this->conn_id))
 		{
@@ -389,7 +389,7 @@ class CI_DB_cubrid_driver extends CI_DB {
 		{
 			return 0;
 		}
-		
+
 		$query = $this->query($this->_count_string . $this->_protect_identifiers('numrows') . " FROM " . $this->_protect_identifiers($table, TRUE, NULL, FALSE));
 
 		if ($query->num_rows() == 0)
