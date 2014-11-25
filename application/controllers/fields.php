@@ -9,9 +9,9 @@ class Fields extends CI_Controller {
 
   public function index()
   {
-    $request = $this->input->get();
+    $event_id = $this->uri->segment(2);
 
-    $fields = $this->field_model->get_all($request);
+    $fields = $this->field_model->get_all($event_id);
 
     $this->output
       ->set_content_type('application/json')
@@ -29,9 +29,11 @@ class Fields extends CI_Controller {
       ->set_output(json_encode($field));
   }
 
-  public function create($event_id)
+  public function create()
   {
     $request = $this->input->post();
+
+    $event_id = $this->uri->segment(2);
 
     $request['event_id'] = $event_id;
 

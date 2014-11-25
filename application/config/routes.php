@@ -41,7 +41,9 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['pandas/:num'] = 'pandas/single';
-$route['fields/:num'] = 'fields/show';
+$route['events/:num/fields'] = 'fields';
+$route['events/:num/fields/([a-z]+)'] = 'fields/$1';
+$route['events/:num/fields/([a-z]+)/(\d+)'] = 'fields/$1/$2';
 
 
 // $route['news/create'] = 'news/create';
