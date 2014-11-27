@@ -40,10 +40,14 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['pandas/:num'] = 'pandas/single';
+$route['pandas/:num'] = 'pandas/single/(:num)';
+
+
+// http://local.tut.com/index.php/events/1/fields
+
 $route['events/:num/fields'] = 'fields';
-$route['events/:num/fields/([a-z]+)'] = 'fields/$1';
-$route['events/:num/fields/([a-z]+)/(\d+)'] = 'fields/$1/$2';
+// $route['events/:num/fields/([a-z]+)'] = 'fields/$1/:num';
+// $route['events/:num/fields/([a-z]+)/:num'] = 'fields/$1/:num';
 
 
 // $route['news/create'] = 'news/create';

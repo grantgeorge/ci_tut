@@ -8,6 +8,8 @@ class Field_model extends CI_Model {
   public $name;
   public $order;
   public $visible;
+  public $updated;
+  public $created;
 
   public function __construct() {
     $this->load->database();
@@ -53,7 +55,6 @@ class Field_model extends CI_Model {
 
   public function update($id, $request)
   {
-
     $this->db->update('fields', $request, 'id = ' . $id);
 
     return $this->db->get_where('fields', array('id' => $id))
@@ -82,5 +83,7 @@ class Field_model extends CI_Model {
     }
     return true;
   }
+
+  private $required_fields = array();
 
 }

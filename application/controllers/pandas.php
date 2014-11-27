@@ -44,11 +44,11 @@ class Pandas extends CI_Controller {
     echo $id;
   }
 
-  public function single()
+  public function single($id)
   {
     $this->load->model('panda_model', '', TRUE);
 
-    $data['id'] = $this->uri->segment(2, 1);
+    $data['id'] = $id;
 
     $data['panda'] = $this->panda_model->get_one($data['id']);
 

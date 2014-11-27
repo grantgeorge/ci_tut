@@ -1,26 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Fields extends CI_Controller {
+class Fields extends MY_Controller {
 
   public function __construct() {
     parent::__construct();
     $this->load->model('field_model');
   }
 
-  public function index()
+  public function index($event_id)
   {
     $event_id = $this->uri->segment(2);
 
     $fields = $this->field_model->get_all($event_id);
 
-    $this->output
-      ->set_content_type('application/json')
-      ->set_output(json_encode($fields));
+    $this->output->set_output($fields);
   }
 
   public function show()
   {
-    $id = $this->uri->segment(2, 1);
+    $id = $this->uri->segment(5, 1);
 
     $field = $this->field_model->get_one($id);
 
@@ -29,7 +27,7 @@ class Fields extends CI_Controller {
       ->set_output(json_encode($field));
   }
 
-  public function create()
+  public function create($event_id)
   {
     $request = $this->input->post();
 
