@@ -46,7 +46,7 @@ $route['pandas/:num'] = 'pandas/single/(:num)';
 // http://local.tut.com/index.php/events/1/fields
 
 $route['events/:num/fields'] = 'fields';
-// $route['events/:num/fields/([a-z]+)'] = 'fields/$1/:num';
+$route['events/:num/fields/([a-z]+)'] = 'fields/$1/:num';
 // $route['events/:num/fields/([a-z]+)/:num'] = 'fields/$1/:num';
 
 

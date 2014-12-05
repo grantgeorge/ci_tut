@@ -7,35 +7,68 @@ class Tests extends CI_Controller {
     parent::__construct();
   }
 
-  /**
-   * Index Page for this controller.
-   *
-   * Maps to the following URL
-   *    http://example.com/index.php/welcome
-   *  - or -
-   *    http://example.com/index.php/welcome/index
-   *  - or -
-   * @see http://codeigniter.com/user_guide/general/urls.html
-   */
   public function index()
   {
-    $this->load->helper(array('form', 'url'));
 
-    $this->load->library('form_validation');
+    $this->load->library('unit_test');
 
-    $this->form_validation->set_rules('username', 'Username', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
-    $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
-    $this->form_validation->set_rules('email', 'Email', 'required');
+    $test = 1 + 1;
 
-    if ($this->form_validation->run() == FALSE)
+    $expected_result = 2;
+
+    $test_name = 'Adds one plus one';
+
+    echo $this->unit->run($test, $expected_result, $test_name);
+
+    echo $this->unit->report();
+
+    // echo $this->unit->result();
+
+
+  }
+
+  public function fields_tests()
+  {
+
+    $this->passed = 0;
+    $this->failed = 0;
+
+    $this->load->library('unit_test');
+
+    $this->load->model('field_model');
+
+    $this->benchmark->mark('code_start');
+
+    $fields = $this->field_model->get_all(1);
+
+    $this->benchmark->mark('code_end');
+
+    echo "Query elapsed time: " . $this->benchmark->elapsed_time('code_start', 'code_end'). "\n";
+
+    $fields_count = count($fields);
+
+    $test_one = $fields_count > 0;
+
+    $test_one_expect = true;
+
+    $test_one_name = 'Fields get_all test';
+
+    $this->unit->run($test_one, $test_one_expect, $test_one_name);
+
+    // print_r($this->unit->report());
+
+    // loop over $this->unit->result() and count results
+    if($this->unit->result()[0]['Result'] === 'Passed')
     {
-      $this->load->view('myform');
+      $this->passed++;
     }
     else
     {
-      $this->load->view('formsuccess');
+      $this->failed++;
     }
+
+    echo "\033[1;32mPassed: " . $this->passed . "\033[0;31m Failed: " . $this->failed . "\n";
+
   }
 
 }

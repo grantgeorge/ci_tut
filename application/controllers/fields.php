@@ -7,13 +7,18 @@ class Fields extends MY_Controller {
     $this->load->model('field_model');
   }
 
-  public function index($event_id)
+  public function index()
   {
+
     $event_id = $this->uri->segment(2);
 
     $fields = $this->field_model->get_all($event_id);
 
-    $this->output->set_output($fields);
+    $this->output
+      ->set_content_type('application/json')
+      ->set_output(json_encode($fields));
+
+    // $this->output->set_output($fields);
   }
 
   public function show()
@@ -60,6 +65,19 @@ class Fields extends MY_Controller {
     $this->output
       ->set_content_type('application/json')
       ->set_output(json_encode($deleted_field));
+  }
+
+  private function tests()
+  {
+    $this->load->library('unit_test');
+
+    $test = 1 + 1;
+
+    $expected_result = 2;
+
+    $test_name = 'Adds one plus one';
+
+    return $this->unit->result();
   }
 
 }

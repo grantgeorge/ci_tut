@@ -7,12 +7,12 @@ class MY_Controller extends CI_Controller {
       parent::__construct();
     }
 
-    function _output($output)
-    {
-      $this->output
-        ->set_content_type('application/json');
-      echo json_encode($output);
-    }
+    // function _output($output)
+    // {
+    //   $this->output
+    //     ->set_content_type('application/json');
+    //   echo json_encode($output);
+    // }
 
     private function _utility()
     {

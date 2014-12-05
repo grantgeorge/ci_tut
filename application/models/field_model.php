@@ -84,6 +84,6 @@ class Field_model extends CI_Model {
     return true;
   }
 
-  private $required_fields = array();
+  // private _$required_fields = array();
 
 }

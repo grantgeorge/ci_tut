@@ -22,7 +22,7 @@
 switch (gethostbyaddr("127.0.0.1"))
 {
 	case 'localhost':
-		define('ENVIRONMENT', 'production');
+		define('ENVIRONMENT', 'development');
 	break;
 
 	case 'testing.attend.com':
@@ -33,7 +33,7 @@ switch (gethostbyaddr("127.0.0.1"))
 		define('ENVIRONMENT', 'testing');
 	break;
 
-	case 'localhost':
+	case 'account.attend.com':
 		define('ENVIRONMENT', 'production');
 	break;
 
