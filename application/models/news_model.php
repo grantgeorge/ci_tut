@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * News Model
+ *
+ * News Model Description
+ *
+ * @package Internal API
+ * @subpackage Models
+ * @category New
+ * @author Grant George <grant.george@attend.com>
+ */
 class News_model extends CI_Model {
 
   public function __construct()

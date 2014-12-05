@@ -1,5 +1,16 @@
 <?php
 
+/**
+ * Field Model Class
+ *
+ * Field Model Class description. This provides a model for fields that can be
+ * used to collect custom data through forms.
+ *
+ * @package Internal API
+ * @subpackage Models
+ * @category Field
+ * @author Grant George <grant.george@attend.com>
+ */
 class Field_model extends CI_Model {
 
   public $id;

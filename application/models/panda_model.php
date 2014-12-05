@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Panda Model Class
+ *
+ * The Panda Model Class contains the model for the Panda object.
+ *
+ * @package Internal API
+ * @subpackage Models
+ * @category Panda
+ * @author Grant George <grant.george@attend.com>
+ */
 class Panda_model extends CI_Model {
 
   var $id;

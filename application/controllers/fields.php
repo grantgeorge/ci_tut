@@ -7,6 +7,15 @@ class Fields extends MY_Controller {
     $this->load->model('field_model');
   }
 
+  /**
+   * GET /fields
+   *
+   * Get all of the fields for an event
+   * ------------------------------------------------------------------------
+   * @access public
+   * @uses $_GET['event_id'] ID of the event to retrieve fields for.
+   * @return Fields[] The Custom Fields for the event
+   */
   public function index()
   {
 
